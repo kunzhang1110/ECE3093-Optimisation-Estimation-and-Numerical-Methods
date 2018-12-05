@@ -1,0 +1,29 @@
+function dec_X=decomp(keepV,data_X)
+nhdle = inputname(2);
+if(nhdle(1)=='origin_R')
+    name = 'Red';
+else if (nhdle(1)=='origin_G')
+    name='Green';
+    else
+name='Blue';
+    end
+end
+    
+[U,S,V] = svd(data_X);
+%sort the absolute values
+sorted=sort(abs(S),'descend');
+%excerpt the largest values
+[sortedSV idx]=sort(sorted(1,:),'descend');
+figure
+plot(sortedSV);
+title(sprintf('Singular Values for %s', name));
+xlabel('Index');
+ylabel('Singular values');
+hold on
+nidx=idx(keepV:end);%corresponding index of colums
+for i=1:max(size(nidx))
+    S(:,nidx(i))=zeros(max(size(S)),1);%make the insignificant singular values zero
+end
+
+dec_X=U*S*transpose(V);
+

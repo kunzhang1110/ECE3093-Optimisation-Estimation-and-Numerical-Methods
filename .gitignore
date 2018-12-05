@@ -1,0 +1,10 @@
+#exclude
+*.zip
+*.pptx
+*.tmp
+/Lecture Notes
+/Past Exams
+/Support Classes
+/Practice Questions
+ECE3093 Unit Guide
+Exam Cover Sheet and Formulae Sheet.pdf

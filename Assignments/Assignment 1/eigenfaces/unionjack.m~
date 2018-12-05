@@ -1,0 +1,11 @@
+clc;clear;
+origin = imread('unionjack.png');
+origin_d= double(origin);
+[evec eval] = eig(origin_d);
+sorted=sort(abs(eval),'descend');
+[sortedeigen idx]=sort(sorted(1,:));
+plot(sortedeigen)
+
+keepV= 300; %the values we keep
+nidx=idx(keepV:end);%corresponding index of colums
+for i

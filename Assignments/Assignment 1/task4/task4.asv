@@ -1,0 +1,14 @@
+clc;clear;
+i=1;%counter for figure(x)
+origin = double(imread('zhang.png'));%read the image
+origin_R=origin(:,:,1);
+origin_G=origin(:,:,2);
+origin_B=origin(:,:,3);
+
+keepV= 25; %the values that we keep
+
+[dec_ALL(:,:,1) i]=decomp(keepV,origin_R,i);
+[dec_ALL(:,:,2) i]=decomp(keepV,origin_G);
+[dec_ALL(:,:,3) i]=decomp(keepV,origin_B);
+
+imshow(uint8((dec_ALL))) %reconstruction
